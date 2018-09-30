@@ -1,0 +1,37 @@
+\documentclass[25pt, a0paper, portrait, margin=0mm, innermargin=15mm,
+     blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter}\definecolor{mygray}{HTML}{CCCCCC} 
+
+
+\definecolorstyle{myColorStyle} {	\colorlet{colorOne}{black} 
+	\colorlet{colorTwo}{mygray} 
+	\colorlet{colorThree}{mygray}}{% Background Colors 
+\colorlet{backgroundcolor}{colorTwo!50} 
+\colorlet{framecolor}{colorTwo!50}% Title Colors\colorlet{titlefgcolor}{white}
+\colorlet{titlebgcolor}{colorOne}% Block Colors 
+\colorlet{blocktitlebgcolor}{colorTwo!50} 
+\colorlet{blocktitlefgcolor}{black} 
+\colorlet{blockbodybgcolor}{colorTwo!50} 
+\colorlet{blockbodyfgcolor}{black}% Innerblock Colors 
+\colorlet{innerblocktitlebgcolor}{white} 
+\colorlet{innerblocktitlefgcolor}{black} 
+\colorlet{innerblockbodybgcolor}{white} 
+\colorlet{innerblockbodyfgcolor}{black} 
+% Note colors \colorlet{notefgcolor}{black} 
+\colorlet{notebgcolor}{white} 
+\colorlet{notefrcolor}{white}}\usecolorstyle{myColorStyle}
+\usetitlestyle{VerticalShading}
+\useblockstyle{TornOut}
+
+\usepackage{avant} 
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}\title{Title} 
+\author{Author} 
+\institute{Institute}
+
+\begin{document}\maketitle
+\begin{columns} 
+\column{0.5} 
+\block{Block 1}{\coloredbox{Content 1 
+}}\column{0.5} 
+\block{Block 2}{\coloredbox{Content 2 
+}} \end{columns} \end{document}
