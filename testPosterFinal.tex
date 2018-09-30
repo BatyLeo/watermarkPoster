@@ -76,7 +76,7 @@
 
 BLABLA INTRODUCTIF\\
 
-We chose to use our theoretical results on blind source separation in order to erase watermarks. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with watermark and the other without. 
+We chose to use our theoretical results on blind source separation in order to erase watermarks. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
 
 \columnbreak
 
@@ -102,24 +102,24 @@ We chose to use our theoretical results on blind source separation in order to e
 
 \block{I - Theory and Mathematical tools}{
 
-The observed information is contained in a random vector $\vec{x}$, it's the image of an unknown random vector $\vec{s}$ by an unknown linear transformation $A$, i.e. $\vec{x} = A\vec{s}$. The question is, can we find $\vec{s}$ using only $\vec{x}$ ?
+The observed information, contained in a random vector $\vec{x}$, is the image of an unknown random vector $\vec{s}$ by an unknown linear transformation $A$, i.e. $\vec{x} = A\vec{s}$. The question is, can we find $\vec{s}$ using only $\vec{x}$ ?
 }
 
 \begin{columns}
 \column{0.5}
 \block{}{
-According to \textsc{Camon}'s therom, if the problem satisfies the following conditions :
+According to \textsc{Comon}'s therom, if the problem satisfies the following conditions :
 
 \begin{itemize}
-\item The components of $\vec{s}$ are independent
-\item At most, one of $\vec{s}$ components is gaussian
-\item $A$ is an invertible matrix, and time independent
+\item the components of $\vec{s}$ are independent
+\item at most, one of $\vec{s}$ components is gaussian
+\item $A$ is a time independant invertible matrix
 \end{itemize}
 
-Then, if we find a matrix $B$ such that the vector $B\vec{x}$ has independent components, we must have $B\vec{x} \simeq \vec{s}$ to a permutation and a homothetie of the components.
+then, any matrix $B$ such that the vector $B\vec{x}$ has independent components satisfies that $B\vec{x} \simeq \vec{s}$, meaning that $B\vec{x}$ is the image of $\vec{s}$ under a permutation and a homothety.
 
-To characterize the independence of the components of a vector, we can use
-\textbf{Mutual penalized Information : }
+To characterize the independence of the components of a vector, we can use the
+\textbf{Mutual penalized Information $J$ : }
 \begin{equation}
 J \left(\vec{y}\right) = \int_{\vec{t}} p_{\vec{y}} \left(\vec{t}\right) \ln \left(  \frac{p_{\vec{y}} \left(\vec{t}\right)}{\Pi_i p_{y_i}(t_i)} \right) \mathrm{d} \vec{t} + \lambda \sum_i \left( \mathrm{Var}(y_i) - 1 \right)^2 
 \end{equation}
@@ -133,16 +133,16 @@ where $\vec{y} = (y_i)_i$ is a random vector, and $\lambda$ is the penalty setti
 $J$ satisfies the following properties :
 \begin{itemize}
 \item $J \geq 0$
-\item $J \left(\vec{y}\right) = 0 \Leftrightarrow \vec{y}$ has independent components, and $\mathrm{Var}(y_i) = 1 \forall i$
+\item $J \left(\vec{y}\right) = 0 \Leftrightarrow \vec{y}$ has independent components, and $\mathrm{Var}(y_i) = 1 ~ \forall~ i$
 \end{itemize}
 
 Now we can reformulate the problem as follows : find $B$ such that  $J( B\vec{x} ) = 0$ which is equivalent to find $\min_B J(B\vec{x})$.\\
 
 $J$ does not only help us find a vector with independent components from $\vec{x}$ but also a bounded one.\\
 
-To minimize $J$ over $B$ we use the gradient decent algorithm : $B_{n+1} = B_n - \mu \frac{\partial J}{\partial B}(B_n)$. Where $\mu$ is the step parameter. 
+To minimize $J$ over $B$ we use the gradient descent algorithm : $B_{n+1} = B_n - \mu \frac{\partial J}{\partial B}(B_n)$, where $\mu$ is the step parameter. \\
 
-We are going to impose the fact that $\mathbb{E}[y_i] = 0$ in our algorithm.
+Finally, we chose to impose $\mathbb{E}[y_i] = 0$ at all times in our algorithm for mathematical simplicity.
 
 }
 
@@ -156,7 +156,7 @@ We are going to impose the fact that $\mathbb{E}[y_i] = 0$ in our algorithm.
 \begin{multicols}{2}
 
 \begin{center}
-At first, we used our algorithm in a case that matched the theoretical framework, that is to say a watermark obtained by linear combination of a text on plain background with the original image:
+At first, we used our algorithm in a case that matched the theoretical framework, that is to say a watermark obtained by linear combination of a text on plain background with the original image :
 
 \begin{tikzfigure}[Input of two images with a linear watermark and one without]
 \includegraphics[width=0.1\textwidth]{img/test1.png}
@@ -228,7 +228,7 @@ As expected, the algorithm returns both original images along with the image of 
 
 \block{III - Case of a common (non-linear) watermark}{
 We generalized the code to colored images working separately on each of the three RGB colors.
-The case of a linear watermark is very specific and most of the commonly used watermarks are not that simple. That is why we also tried to remove a watermark made by a specialized website\footnotemark{}.
+The case of a linear watermark is very specific and most of the commonly used watermarks are not that simple. This is why we also tried to remove a watermark made by a specialized website\footnotemark{}.
 
 
 \begin{tikzfigure}[Input of two images with a non-linear watermark and one without]
@@ -239,20 +239,19 @@ The case of a linear watermark is very specific and most of the commonly used wa
 }
 
 \block{}{
-As the modification of the images we obtained that way were not necessarily linear, we couldn't expect to erase the watermark only by using blind source separation. The results it gives are interesting, though.
+As the modification of the images we obtained that way were not necessarily linear, we couldn't expect to erase the watermark only by using blind source separation. The returned values are nevertheless interesting.
 
 \begin{tikzfigure}[Result of the program]
-\includegraphics[width=0.2\textwidth]{img/res1.png}
-\includegraphics[width=0.2\textwidth]{img/res2.png}
-\includegraphics[width=0.2\textwidth]{img/res3.png}
+\includegraphics[width=0.2\textwidth]{img/recomposed_rails.png}
+\includegraphics[width=0.2\textwidth]{img/recomposed_warscene_1.png}
+\includegraphics[width=0.2\textwidth]{img/recomposed_warscene_2.png}
 \end{tikzfigure} 
 
-The watermark barely changed and is still visible, however, the algorithm manages to isolate the letters of the watermark on a plain background.
+The watermark barely changed and is still visible. However, the algorithm manages to isolate the letters of the watermark on a plain background.
 
 \begin{multicols}{2}
 
-
-Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation that is applied by comparing the pixels of the image we have with and without watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when the transformation is too complicated. Nevertheless, the results were very satisfying in our case where transformations turned out to be affine.
+Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation which was applied by comparing the pixels of the image we possess with and without a watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when the transformation is too complicated. The results were very satisfying in our case where transformations turned out to be affine.
 
 BLABLA DE CONCLUSION
 
@@ -261,8 +260,6 @@ BLABLA DE CONCLUSION
 \begin{tikzfigure}[Final result]
 \includegraphics[width=0.2\textwidth]{img/resfinal.png}
 \end{tikzfigure} 
-
-
 
 \end{multicols}
 
@@ -279,11 +276,11 @@ BLABLA DE CONCLUSION
 %\end{document}
 
 
-% add the nootnotes in a node
-\node [text width=14cm,above right] at (bottomleft) {% the bottomleft coordinate is defined by the class
+% add the footnotes in a node
+\node [text width=34cm,above right] at (bottomleft) {% the bottomleft coordinate is defined by the class
 \setcounter{footnote}{0}%
 \printfootnote{site des watermarks}
-\printfootnote{site des watermarks}
+\printfootnote{https://www.umarkonline.com/}
 \printfootnote{Code Python: https://github.com/JeremyLauret/watermark-remover} % ipsum is the text of the footnote
 
 };
