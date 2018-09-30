@@ -81,8 +81,8 @@ We chose to use our theoretical results on blind source separation in order to e
 \columnbreak
 
 \begin{tikzfigure}[Examples of watermarked images\footnotemark{}]
-\includegraphics[width=0.15\textwidth]{watermarkExample1.jpg}
-\includegraphics[width=0.15\textwidth]{watermarkExample2.jpg}
+\includegraphics[width=0.15\textwidth]{img/watermarkExample1.jpg}
+\includegraphics[width=0.15\textwidth]{img/watermarkExample2.jpg}
 \end{tikzfigure} 
 
 \end{multicols}
@@ -159,9 +159,9 @@ We are going to impose the fact that $\mathbb{E}[y_i] = 0$ in our algorithm.
 At first, we used our algorithm in a case that matched the theoretical framework, that is to say a watermark obtained by linear combination of a text on plain background with the original image:
 
 \begin{tikzfigure}[Input of two images with a linear watermark and one without]
-\includegraphics[width=0.1\textwidth]{test1.png}
-\includegraphics[width=0.1\textwidth]{test.png}
-\includegraphics[width=0.1\textwidth]{barbara.png}
+\includegraphics[width=0.1\textwidth]{img/test1.png}
+\includegraphics[width=0.1\textwidth]{img/test.png}
+\includegraphics[width=0.1\textwidth]{img/barbara.png}
 \end{tikzfigure}
 \end{center} 
 
@@ -172,9 +172,9 @@ At first, we used our algorithm in a case that matched the theoretical framework
 As expected, the algorithm returns both original images along with the image of the watermark:
 
 \begin{tikzfigure}[Output of the program]
-\includegraphics[width=0.1\textwidth]{resu1.png}
-\includegraphics[width=0.1\textwidth]{resu2.png}
-\includegraphics[width=0.1\textwidth]{resu3.png}
+\includegraphics[width=0.1\textwidth]{img/resu1.png}
+\includegraphics[width=0.1\textwidth]{img/resu2.png}
+\includegraphics[width=0.1\textwidth]{img/resu3.png}
 \end{tikzfigure}
 \end{center} 
 
@@ -232,9 +232,9 @@ The case of a linear watermark is very specific and most of the commonly used wa
 
 
 \begin{tikzfigure}[Input of two images with a non-linear watermark and one without]
-\includegraphics[width=0.2\textwidth]{watermarked_rails.png}
-\includegraphics[width=0.2\textwidth]{watermarked_warscene.png}
-\includegraphics[width=0.2\textwidth]{warscene.jpg}
+\includegraphics[width=0.2\textwidth]{img/watermarked_rails.png}
+\includegraphics[width=0.2\textwidth]{img/watermarked_warscene.png}
+\includegraphics[width=0.2\textwidth]{img/warscene.jpg}
 \end{tikzfigure} 
 }
 
@@ -242,9 +242,9 @@ The case of a linear watermark is very specific and most of the commonly used wa
 As the modification of the images we obtained that way were not necessarily linear, we couldn't expect to erase the watermark only by using blind source separation. The results it gives are interesting, though.
 
 \begin{tikzfigure}[Result of the program]
-\includegraphics[width=0.2\textwidth]{res1.png}
-\includegraphics[width=0.2\textwidth]{res2.png}
-\includegraphics[width=0.2\textwidth]{res3.png}
+\includegraphics[width=0.2\textwidth]{img/res1.png}
+\includegraphics[width=0.2\textwidth]{img/res2.png}
+\includegraphics[width=0.2\textwidth]{img/res3.png}
 \end{tikzfigure} 
 
 The watermark barely changed and is still visible, however, the algorithm manages to isolate the letters of the watermark on a plain background.
@@ -259,7 +259,7 @@ BLABLA DE CONCLUSION
 \columnbreak
 
 \begin{tikzfigure}[Final result]
-\includegraphics[width=0.2\textwidth]{resfinal.png}
+\includegraphics[width=0.2\textwidth]{img/resfinal.png}
 \end{tikzfigure} 
 
 
