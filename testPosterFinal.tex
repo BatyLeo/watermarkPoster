@@ -74,9 +74,14 @@
 
 \begin{multicols}{2}
 
-BLABLA INTRODUCTIF\\
+\bigskip
+ 
+\bigskip
 
-We chose to use our theoretical results on blind source separation in order to erase watermarks. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
+A watermark is a text added on an image (cf. fig.1), to indicate a copyright and prevent someone to copy it without the right. Our objective is therefore to erase watermarks from images.\\
+
+We chose to use theoretical results on blind source separation in order to create a program erasing watermarks from images.\\
+First, we considered the most simple case of a linear watermark, then we considered watermarks which are not necessarily linear but more realistic. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
 
 \columnbreak
 
@@ -171,7 +176,7 @@ At first, we used our algorithm in a case that matched the theoretical framework
 \begin{center}
 As expected, the algorithm returns both original images along with the image of the watermark:
 
-\begin{tikzfigure}[Output of the program]
+\begin{tikzfigure}[Output of the program after 5000 iterations and $\mu=0.01$]
 \includegraphics[width=0.1\textwidth]{img/resu1.png}
 \includegraphics[width=0.1\textwidth]{img/resu2.png}
 \includegraphics[width=0.1\textwidth]{img/resu3.png}
@@ -249,11 +254,17 @@ As the modification of the images we obtained that way were not necessarily line
 
 The watermark barely changed and is still visible. However, the algorithm manages to isolate the letters of the watermark on a plain background.
 
+
+
 \begin{multicols}{2}
 
-Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation which was applied by comparing the pixels of the image we possess with and without a watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when the transformation is too complicated. The results were very satisfying in our case where transformations turned out to be affine.
 
-BLABLA DE CONCLUSION
+
+Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation which was applied by comparing the pixels of the image we possess with and without a watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when the transformation is too complicated. The results were very satisfying in our case where transformations turned out to be affine.\\
+
+\bigskip
+
+In conclusion, linear watermarks can easily be dealt with blind source separation, but more complex and common watermarks with non-linear transformations need a complementary treatment to obtain satisfying results.
 
 \columnbreak
 
@@ -277,11 +288,11 @@ BLABLA DE CONCLUSION
 
 
 % add the footnotes in a node
-\node [text width=34cm,above right] at (bottomleft) {% the bottomleft coordinate is defined by the class
+\node [text width=34cm, above right] at (bottomleft) {% the bottomleft coordinate is defined by the class
 \setcounter{footnote}{0}%
-\printfootnote{site des watermarks}
+\printfootnote{https://www.uconomix.com/products/umark/images/watermark-tilling.jpg and https://shuttermuse.com/photologo-review-photography-logo-watermark/}
 \printfootnote{https://www.umarkonline.com/}
-\printfootnote{Code Python: https://github.com/JeremyLauret/watermark-remover} % ipsum is the text of the footnote
+\printfootnote{Our Python code : https://github.com/JeremyLauret/watermark-remover}
 
 };
 
