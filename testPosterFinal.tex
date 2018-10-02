@@ -78,10 +78,10 @@
  
 \bigskip
 
-A watermark is a text added on an image (cf. fig.1), to indicate a copyright and prevent someone to copy it without the right. Our objective is therefore to erase watermarks from images.\\
+A watermark is a digitally added text used to copyright an image and prevent it from unrightful copy or misappropriation (cf. fig.1). This project aims at the complete removal of such watermarks.\\
 
-We chose to use theoretical results on blind source separation in order to create a program erasing watermarks from images.\\
-First, we considered the most simple case of a linear watermark, then we considered watermarks which are not necessarily linear but more realistic. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
+We chose to use theoretical results on blind source separation in order to create an efficient watermark-erasing program.\\
+We first considered the simplest case of linear watermarks, and then more realistic ones which were not necessarily linear. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
 
 \columnbreak
 
@@ -264,7 +264,7 @@ Thus, it becomes rather easy to identify the pixels of the images that correspon
 
 \bigskip
 
-In conclusion, linear watermarks can easily be dealt with blind source separation, but more complex and common watermarks with non-linear transformations need a complementary treatment to obtain satisfying results.
+Linear watermarking can easily be dealt with using blind source separation, but more complex and common watermarks with non-linear transformations need a complementary treatment to obtain satisfying results. What needs to be kept in mind is that the application fields of the blind source separation method are numerous and do not stop at image processing - cryptography or sound treatment for instance can also benefit from it.
 
 \columnbreak
 
