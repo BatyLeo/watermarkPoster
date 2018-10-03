@@ -52,6 +52,7 @@
 \usepackage{color}
 \usepackage{multicol}
 \usepackage{amsmath,amssymb}
+\tikzposterlatexaffectionproofoff
 
 
 \let\thempfootnote\thefootnote%http://tex.stackexchange.com/questions/956/footnotemark-and-footnotetext-in-minipage#959
@@ -161,7 +162,7 @@ Finally, we chose to impose $\mathbb{E}[y_i] = 0$ at all times in our algorithm 
 \begin{multicols}{2}
 
 \begin{center}
-At first, we used our algorithm in a case that matched the theoretical framework, that is to say a watermark obtained by linear combination of a text on plain background with the original image :
+At first, we used our algorithm\footnotemark{} in a case that matched the theoretical framework, that is to say a watermark obtained by linear combination of a text on plain background with the original image :
 
 \begin{tikzfigure}[Input of two images with a linear watermark and one without]
 \includegraphics[width=0.1\textwidth]{img/test1.png}
@@ -295,5 +296,13 @@ Linear watermarking can easily be dealt with using blind source separation, but 
 \printfootnote{Our Python code : https://github.com/JeremyLauret/watermark-remover}
 
 };
+
+
+\node [text width=38cm, above left,font=\footnotesize,outer sep=2cm] at (bottomleft -| topright) {
+Bibliography:\\
+M. El Rhabi, G. Gelle, H. Fenniri et G. Delaunay. "A penalized mutual information criterion for blind separation of convolutive mixtures". Signal Processing 83 (2004), 1979-1984.\\
+Massoud Babaie-Zadeh, "On Blind Source Separation in Convolutive and Non-Linear mixtures", 20 September 2002.
+};
+
 
 \end{document}
