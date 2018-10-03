@@ -81,8 +81,9 @@
 
 A watermark is a digitally added text used to copyright an image and prevent it from unrightful copy or misappropriation (cf. fig.1). This project aims at the complete removal of such watermarks.\\
 
-We chose to use theoretical results on blind source separation in order to create an efficient watermark-erasing program.\\
-We first considered the simplest case of linear watermarks, and then more realistic ones which were not necessarily linear. In each case, we assumed that we had a set of three images composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
+We chose to use blind source separation in order to create an efficient watermark-erasing program.\\
+Given $n$ observed images resulting from the linear combination of $n$ sources, this theory gives a method to rebuild the $n$ original images.
+We first considered the simple case of linear watermarks, and then more realistic ones which were not necessarily linear. In each case, we assumed that we had a set of three observees (thus $n=3$) composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
 
 \columnbreak
 
@@ -114,7 +115,7 @@ The observed information, contained in a random vector $\vec{x}$, is the image o
 \begin{columns}
 \column{0.5}
 \block{}{
-According to \textsc{Comon}'s therom, if the problem satisfies the following conditions :
+According to \textsc{Comon}'s theorem, if the problem satisfies the following conditions :
 
 \begin{itemize}
 \item the components of $\vec{s}$ are independent
@@ -122,14 +123,14 @@ According to \textsc{Comon}'s therom, if the problem satisfies the following con
 \item $A$ is a time independant invertible matrix
 \end{itemize}
 
-then, any matrix $B$ such that the vector $B\vec{x}$ has independent components satisfies that $B\vec{x} \simeq \vec{s}$, meaning that $B\vec{x}$ is the image of $\vec{s}$ under a permutation and a homothety.
+then, any matrix $B$ such that the vector $B\vec{x}$ has independent components satisfies that $B\vec{x} \simeq \vec{s}$, meaning that $B\vec{x}$ could approximate $\vec{s}$ up to a scaling factor and/or a permutation of the vector components.
 
 To characterize the independence of the components of a vector, we can use the
 \textbf{Mutual penalized Information $J$ : }
 \begin{equation}
 J \left(\vec{y}\right) = \int_{\vec{t}} p_{\vec{y}} \left(\vec{t}\right) \ln \left(  \frac{p_{\vec{y}} \left(\vec{t}\right)}{\Pi_i p_{y_i}(t_i)} \right) \mathrm{d} \vec{t} + \lambda \sum_i \left( \mathrm{Var}(y_i) - 1 \right)^2 
 \end{equation}
-where $\vec{y} = (y_i)_i$ is a random vector, and $\lambda$ is the penalty setting.\\
+where $\vec{y} = (y_i)_i$ is a random vector, $p_{\vec{y}}$ its joint distribution, $(p_{y_i})_i$ its marginal distributions, and $\lambda>0$ the penalty setting.\\
 
 }
 
@@ -146,7 +147,7 @@ Now we can reformulate the problem as follows : find $B$ such that  $J( B\vec{x}
 
 $J$ does not only help us find a vector with independent components from $\vec{x}$ but also a bounded one.\\
 
-To minimize $J$ over $B$ we use the gradient descent algorithm : $B_{n+1} = B_n - \mu \frac{\partial J}{\partial B}(B_n)$, where $\mu$ is the step parameter. \\
+To minimize $J$ over $B$ we use the gradient descent algorithm : $B_{n+1} = B_n - \mu \frac{\partial J}{\partial B}(B_n)$, where $\mu > 0$ is the step parameter. \\
 
 Finally, we chose to impose $\mathbb{E}[y_i] = 0$ at all times in our algorithm for mathematical simplicity.
 
@@ -261,7 +262,7 @@ The watermark barely changed and is still visible. However, the algorithm manage
 
 
 
-Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation which was applied by comparing the pixels of the image we possess with and without a watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when the transformation is too complicated. The results were very satisfying in our case where transformations turned out to be affine.\\
+Thus, it becomes rather easy to identify the pixels of the images that correspond to the letters. This allows to determine the kind of transformation which was applied by comparing the pixels of the image we possess with and without a watermark. Obviously, an important drawback of this method is that it is not systematic and is possibly inconclusive when one fails to find out which transformation was used on the sources. The results were very satisfying in our case where transformations turned out to be affine.\\
 
 \bigskip
 
