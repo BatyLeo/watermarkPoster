@@ -83,7 +83,7 @@ A watermark is a digitally added text used to copyright an image and prevent it 
 
 We chose to use blind source separation in order to create an efficient watermark-erasing program.\\
 Given $n$ observed images resulting from the linear combination of $n$ sources, this theory gives a method to rebuild the $n$ original images.
-We first considered the simple case of linear watermarks, and then more realistic ones which were not necessarily linear. In each case, we assumed that we had a set of three observees (thus $n=3$) composed of a target image with a watermark to erase and two copies of another image, one with the same watermark and the other without any. 
+We first considered the simple case of linear watermarks, and then more realistic ones which were not necessarily linear. In each case, we assumed that we had a set of three observees (thus $n=3$) composed of a target image with a watermark to remove and two copies of another image, one with the same watermark and the other without any. 
 
 \columnbreak
 
@@ -246,7 +246,7 @@ The case of a linear watermark is very specific and most of the commonly used wa
 }
 
 \block{}{
-As the modification of the images we obtained that way were not necessarily linear, we couldn't expect to erase the watermark only by using blind source separation. The returned values are nevertheless interesting.
+As the modification of the images we obtained that way were not necessarily linear, we couldn't expect to remove the watermark only by using blind source separation. The returned values are nevertheless interesting.
 
 \begin{tikzfigure}[Result of the program]
 \includegraphics[width=0.2\textwidth]{img/recomposed_rails.png}
